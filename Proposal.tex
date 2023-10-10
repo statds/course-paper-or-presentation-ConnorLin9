@@ -2,6 +2,7 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{natbib}
+\usepackage{url}
 
 \begin{document}
 
@@ -11,16 +12,55 @@ Department of Statistics, Your University}
 \maketitle
 
 \section*{Introduction}
+This proposal outlines a research project to analyze the factors influencing pricing in the Airbnb rental market. Airbnb has become a prominent platform for short-term accommodations, and understanding the pricing dynamics is crucial for hosts and travelers. This project aims to identify the critical determinants of Airbnb pricing, offering valuable insights for hosts, travelers, and policymakers.
 
 \section*{Specific Aims}
+The specific aims of this project include:
+\begin{enumerate}
+  \item Collecting and curating a dataset of Airbnb listings, including details about property attributes, location, host characteristics, and pricing information.
+  \item Analyzing the dataset to identify the primary factors influencing Airbnb pricing, such as property type, location, occupancy rate, and seasonality.
+  \item Developing predictive models to estimate Airbnb rental prices based on the identified factors.
+\end{enumerate}
 
 \section*{Data}
+We will collect and analyze data from Airbnb listings in [Target Location(s)]. The dataset will include information on various aspects of each listing:
+
+\begin{center}
+\begin{tabular}{lp{8cm}}
+\textbf{Aspect} & \textbf{Details} \\
+Property attributes & Size, number of bedrooms, amenities \\
+Location characteristics & Neighborhood, proximity to attractions \\
+Host characteristics & Host experience, response rate \\
+Pricing details & Nightly rates, cleaning fees, extra guest charges \\
+Historical occupancy rates & Booking data \\
+\end{tabular}
+\end{center}
 
 \section*{Methods}
+The analysis will involve various statistical and machine-learning methods to investigate the determinants of Airbnb pricing:
+\begin{enumerate}
+  \item \textbf{Descriptive Statistics}: We will summarize the dataset, providing insights into variables' central tendencies, spread, and distribution.
+  \item \textbf{Regression Analysis}: Regression models will be employed to model the relationship between pricing and independent variables. This will help us identify factors that significantly impact Airbnb pricing.
+  \item \textbf{Machine Learning Algorithms}: Machine learning techniques will be utilized to build predictive pricing models.
+\end{enumerate}
+
+We will use statistical software like R or Python for data analysis and modeling. Combining these methods will provide a comprehensive understanding of Airbnb pricing factors.
 
 \section*{Discussion}
+The results of this analysis will provide valuable insights into the determinants of Airbnb pricing. Hosts can benefit from understanding how various factors affect their listing's pricing strategy. Travelers can make more informed decisions when booking accommodations. Additionally, this research may have implications for local tourism and housing policies.
 
 \section*{References}
+\begin{thebibliography}{}
 
+\bibitem{toader2021}
+Toader, V. (2021, August 11). Full article: Analysis of price determinants in the case of Airbnb listings.
+\url{https://www.tandfonline.com/doi/full/10.1080/1331677X.2021.1962380} 
+
+\bibitem{dogru2020}
+Dogru, T., Zhang, Y., Suess, C., Mody, M., Bulut, U. (2020, May 5).
+What caused the rise of Airbnb? An examination of key macroeconomic factors.
+\url{https://www.sciencedirect.com/science/article/abs/pii/S0261517720300601} 
+
+\end{thebibliography}
 
 \end{document}
