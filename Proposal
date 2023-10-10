@@ -1,0 +1,26 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{natbib}
+
+\begin{document}
+
+\title{Proposal: Analysis of Airbnb Pricing Factors}
+\author{Thomas Lin\\
+Department of Statistics, Your University}
+\maketitle
+
+\section*{Introduction}
+
+\section*{Specific Aims}
+
+\section*{Data}
+
+\section*{Methods}
+
+\section*{Discussion}
+
+\section*{References}
+
+
+\end{document}
