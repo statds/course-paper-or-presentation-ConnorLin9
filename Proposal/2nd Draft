@@ -1,1 +1,75 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{natbib}
+\usepackage{url}
 
+\begin{document}
+
+\title{Proposal: Analysis of Airbnb Pricing Factors}
+\author{Thomas Lin\\
+Department of Statistics, Your University}
+\maketitle
+
+\section*{Introduction}
+The proposal outlines a research project to analyze pricing factors in the dynamic Airbnb rental market comprehensively. Over the past decade, Airbnb has become a dominant platform for short-term accommodations, significantly impacting the global hospitality industry. Understanding the intricacies of Airbnb pricing is paramount for hosts, travelers, and policymakers. This research seeks to identify and explore the critical determinants of Airbnb pricing, offering valuable insights to enhance the user experience and drive informed decision-making.
+
+\section*{Background}
+To contextualize the importance of understanding Airbnb pricing, let's examine some key statistics and trends:
+\begin{itemize}
+  \item Airbnb boasts over 7 million listings in more than 220 countries and regions, making it a substantial player in the travel and lodging sector.
+  \item The pricing strategies employed by hosts can be highly variable, leading to fluctuations in rental rates based on factors like location, property type, and seasonal demand.
+  \item Studies have indicated that various determinants, including property attributes, location characteristics, and host behavior, can significantly influence Airbnb pricing.
+\end{itemize}
+This project seeks to delve deeper into these trends, providing a data-driven understanding of Airbnb pricing dynamics.
+
+\section*{Specific Aims}
+The specific aims of this research project encompass the following:
+\begin{enumerate}
+  \item \textbf{Data Collection}: Collect and curate a comprehensive dataset of Airbnb listings, including detailed information on property attributes, location characteristics, host profiles, and pricing details.
+  \item \textbf{Data Analysis}: Employ advanced analytical techniques to identify the primary factors influencing Airbnb pricing. Explore the relationships between pricing and property type, location, occupancy rates, and seasonality variables.
+  \item \textbf{Predictive Models}: Develop robust predictive pricing models to estimate Airbnb rental prices based on the identified determinants. These models will empower both hosts and travelers with the ability to make informed decisions.
+\end{enumerate}
+
+\section*{Data Collection}
+To ensure the dataset's integrity, we will utilize data from Airbnb listings in [Target Location(s)] and supplement it with publicly available data from the Airbnb website. The comprehensive dataset will include details on the following aspects of each listing:
+\begin{itemize}
+  \item Property attributes (e.g., size, number of bedrooms, amenities).
+  \item Location characteristics (e.g., neighborhood, proximity to attractions).
+  \item Host characteristics (e.g., host experience, response rate).
+  \item Pricing details (e.g., nightly rates, cleaning fees, extra guest charges).
+  \item Historical occupancy rates and booking data.
+\end{itemize}
+
+\section*{Methods}
+The analysis will involve a diverse set of statistical and machine-learning methods:
+\begin{enumerate}
+  \item \textbf{Descriptive Statistics}: We will start by conducting a comprehensive descriptive analysis of the dataset. This step includes summarizing variables, investigating central tendencies, spread, and distribution, and identifying potential outliers.
+  \item \textbf{Regression Analysis}: We will employ multiple regression techniques to model the relationship between pricing and independent variables. These models will help identify which factors significantly impact Airbnb pricing.
+  \item \textbf{Machine Learning Algorithms}: Advanced machine learning algorithms will be used to build predictive pricing models. These models will offer a more granular understanding of how various factors collectively affect Airbnb pricing.
+  \item \textbf{Time-Series Analysis}: To account for seasonality and temporal trends, time-series analysis will be incorporated. This will help reveal pricing patterns over time.
+\end{enumerate}
+
+\section*{Graphs and Visuals}
+To enhance the presentation of results, we will create data visualizations using RStudio. These visualizations will include scatter plots, histograms, and time series plots to illustrate relationships and trends in the data. They will serve as valuable tools for conveying complex information in a user-friendly manner.
+
+\section*{Discussion}
+The results of this analysis will provide invaluable insights into the determinants of Airbnb pricing. Hosts can optimize their pricing strategies by understanding how various factors influence their listing's rental rates. Travelers will benefit from making informed decisions when booking accommodations. Furthermore, the research may hold implications for local tourism and housing policies, ensuring the sustainable growth of short-term rental markets.
+
+\section*{Future Work}
+This research project opens doors to several potential areas of future study. For instance, a deeper exploration of the geographical variations in pricing factors or the impact of local regulations on Airbnb pricing dynamics could yield valuable insights. These avenues represent exciting opportunities for further research.
+
+\begin{thebibliography}{}
+
+\bibitem{toader2021}
+Toader, V. (2021, August 11). Full article: Analysis of price determinants in the case of Airbnb listings.
+\url{https://www.tandfonline.com/doi/full/10.1080/1331677X.2021.1962380} 
+
+\bibitem{dogru2020}
+Dogru, T., Zhang, Y., Suess, C., Mody, M., Bulut, U. (2020, May 5).
+What caused the rise of Airbnb? An examination of critical macroeconomic factors.
+\url{https://www.sciencedirect.com/science/article/abs/pii/S0261517720300601} 
+
+\end{thebibliography}
+
+\end{document}
