@@ -1,0 +1,101 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{natbib}
+\usepackage{url}
+
+\begin{document}
+
+\title{Analysis of Airbnb Rental Prices in European Cities}
+\author{Thomas Lin\\
+Department of Statistics, University of Connecticut}
+\maketitle
+
+\section*{Introduction}
+With its presence in over 220 countries and 7 million listings, Airbnb stands as a transformative force in the sharing economy. Offering a diverse range of accommodations, from urban lofts to countryside cottages, Airbnb encapsulates the essence of curated travel experiences. For hosts, pricing becomes a delicate equilibrium, shaping the competitiveness and profitability of their listings. Travelers, amidst numerous choices, navigate pricing alongside considerations like location and amenities.
+
+Beyond individual transactions, Airbnb's pricing dynamics echo through urban planning and community dynamics, posing a nuanced challenge for policymakers. Our research delves into the intricate tapestry of Airbnb pricing, unraveling the determinants influencing this dynamic marketplace. We aim to contribute to the academic understanding of the sharing economy and provide practical insights for hosts, travelers, and policymakers navigating the evolving travel and hospitality landscape.
+
+\section*{Background}
+Airbnb's expansive growth, with over 7 million listings across 220 countries, has reshaped the global travel and lodging sector. The platform's ubiquity underscores its transformative impact, offering diverse accommodations from modest apartments to luxurious villas.
+
+Within this dynamic marketplace, pricing strategies exhibit considerable variability. Hosts, acting as independent entrepreneurs, employ diverse approaches influenced by factors such as location, property type, and seasonal demand. Location plays a pivotal role, with properties in different regions commanding distinct pricing structures.
+
+Property type further shapes Airbnb pricing, reflecting the diverse range of accommodation styles available on the platform. Seasonal demand introduces complexity, with travel patterns influencing booking volume and optimal pricing strategies for hosts throughout the year.
+
+Existing studies highlight the impact of property attributes, location characteristics, and host behavior on pricing. However, a comprehensive, data-driven exploration of Airbnb pricing dynamics is needed. This research project aims to fill this gap by delving into pricing trends and uncovering patterns within the Airbnb dataset. The goal is to provide actionable insights for hosts, travelers, and policymakers navigating the dynamic realm of short-term accommodations.
+
+\section*{Specific Aims}
+This research project is designed to achieve the following specific aims:
+
+\begin{enumerate}
+  \item \textbf{Data Collection}: Gather and curate a comprehensive dataset of Airbnb listings in European cities, incorporating detailed information on property attributes, location characteristics, host profiles, and pricing details.
+  \item \textbf{Data Analysis}: Apply advanced analytical techniques to identify primary factors influencing Airbnb pricing in European cities. Investigate relationships between pricing and property type, location, occupancy rates, and seasonality variables.
+  \item \textbf{Predictive Models}: Develop robust predictive pricing models specific to European cities to estimate Airbnb rental prices based on identified determinants. Empower hosts and travelers with tools to make informed decisions.
+\end{enumerate}
+
+\subsection*{Data Collection}
+To ensure the integrity and relevance of the dataset, this study will utilize the Kaggle dataset containing Airbnb rental data for multiple European cities. The dataset includes various features that can significantly contribute to understanding the factors influencing European Airbnb rental prices. The relevant columns from the dataset include:
+
+\begin{itemize}
+  \item \textbf{realSum}: Total price of the listing
+  \item \textbf{room\_type}: Type of room offered (e.g., private, shared, entire home/apt)
+  \item \textbf{room\_shared}: Whether or not the room is shared
+  \item \textbf{person\_capacity}: Maximum number of people allowed in the property
+  \item \textbf{host\_is\_superhost}: Whether or not the host is a super host (boolean value)
+  \item \textbf{multi}: Whether it's for multiple rooms or not
+  \item \textbf{biz}: Whether it's for business use or family use
+  \item \textbf{dist}: The distance from the city center
+  \item \textbf{metro\_dist}: The distance from the nearest metro station
+  \item \textbf{guest satisfaction overall}: Overall satisfaction rating from guests
+  \item \textbf{Cleanliness rating}: Rating for cleanliness
+  \item \textbf{Bedrooms}: Number of bedrooms
+\end{itemize}
+
+\subsection*{Methods}
+The analysis will utilize the selected features from the Kaggle dataset to identify primary factors influencing Airbnb pricing in European cities:
+
+\begin{enumerate}
+  \item \textbf{Feature Selection}: Select relevant features (e.g., realSum, room\_type, host\_is\_superhost, dist, metro\_dist, etc.) based on their importance and relevance to the research goals.
+  \item \textbf{Exploratory Data Analysis (EDA)}: Conduct exploratory data analysis to understand the distribution of critical variables, identify potential outliers, and gain insights into the relationships between features.
+  \item \textbf{Regression Analysis}: Utilize multiple regression techniques to model the relationship between pricing and selected independent variables. Identify significant factors influencing Airbnb pricing in European cities.
+  \item \textbf{Machine Learning Models}: Implement advanced machine learning algorithms to build predictive pricing models specific to European cities. These models will provide a granular understanding of how various factors affect Airbnb pricing in the European market.
+  \item \textbf{Geospatial Analysis}: Conduct geospatial analysis by plotting distance variables (dist, metro\_dist) with respect to latitude and longitude. This will indicate geographical locations where businesses could benefit from higher occupancy rates based on neighborhood proximity and help tackle seasonal variations.
+  \item \textbf{Correlation Analysis}: Use correlation matrices to identify strong correlations between variables. This will help establish relationships across different features and guide decisions on which parameters to consider based on one another.
+\end{enumerate}
+
+\section*{Graphs and Visuals}
+RStudio will be employed to create compelling data visualizations specific to European cities, enhancing the presentation of results. Visualizations, including scatter plots, histograms, and time series plots, will serve as valuable tools for conveying complex information user-friendly within the European context.
+
+\section*{Results}
+This section presents preliminary findings and insights derived from the comprehensive data analysis outlined in the methodology within the context of European cities. While the detailed results are pending, initial trends are emerging. The exploratory data analysis revealed intriguing patterns in the distribution of key variables, and early regression models suggest certain factors play a significant role in determining Airbnb pricing in European cities. The geospatial analysis indicates potential hotspots with higher demand, and correlation matrices provide insights into the relationships between various features. Visualizations, including scatter plots and histograms, will be showcased in the final version of this section.
+
+\subsubsection*{Geospatial Insights}
+Further examining the geospatial analysis, specific neighborhoods within European cities exhibit unique characteristics affecting Airbnb pricing. Geographical variations in demand and proximity to popular attractions contribute to nuanced pricing strategies. Identifying these patterns is crucial for hosts and policymakers in optimizing their approaches.
+
+\subsubsection*{Neighborhood-specific Strategies}
+Discussing neighborhood-specific strategies for hosts, the importance of adapting to local demand and attractions is emphasized. Hosts can leverage the geospatial insights to strategically price their listings, considering the unique features of each neighborhood. Understanding the varied preferences of travelers within different European city neighborhoods becomes pivotal in achieving optimal occupancy rates.
+
+\subsection*{Discussion}
+Anticipating the results, the discussion will delve into the implications for hosts, travelers, and policymakers within European cities. How can hosts optimize their pricing strategies, and how can travelers benefit from making informed decisions when booking accommodations within Europe? What are the broader implications for local tourism and housing policies specific to European cities?
+
+\section*{Conclusion}
+In conclusion, this research project aims to provide invaluable insights into the determinants of Airbnb pricing within European cities. By understanding how various factors influence rental rates in the European market, hosts can optimize their pricing strategies, travelers can make informed decisions, and policymakers can shape effective regulations for sustainable growth in short-term rental markets.
+
+\subsection*{Future Work}
+This research project opens avenues for future studies within European cities. Future research could delve deeper into city-specific variations in pricing factors or explore the impact of local regulations on Airbnb pricing dynamics in different regions of Europe. These potential areas represent exciting opportunities for further exploration and understanding within the European context.
+
+\begin{thebibliography}{}
+
+\bibitem{toader2021}
+Toader, V. (2021, August 11). Full article: Analysis of price determinants in the case of Airbnb listings.
+\url{https://www.tandfonline.com/doi/full/10.1080/1331677X.2021.1962380} 
+
+\bibitem{dogru2020}
+Dogru, T., Zhang, Y., Suess, C., Mody, M., Bulut, U. (2020, May 5).
+What caused the rise of Airbnb? An examination of critical macroeconomic factors.
+\url{https://www.sciencedirect.com/science/article/abs/pii/S0261517720300601} 
+
+\end{thebibliography}
+
+\end{document}
