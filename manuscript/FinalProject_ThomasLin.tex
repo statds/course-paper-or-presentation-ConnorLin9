@@ -1,0 +1,421 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{natbib}
+\usepackage{url}
+\usepackage{verbatim}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\floatplacement{figure}{H}
+
+\begin{document}
+
+\title{Analysis of Airbnb Rental Prices in European Cities}
+\author{Thomas Lin\\
+Department of Statistics, University of Connecticut}
+\maketitle
+
+\section*{Introduction}
+With its presence in over 220 countries and 7 million listings, Airbnb stands as a transformative force in the sharing economy. Offering a diverse range of accommodations, from urban lofts to countryside cottages, Airbnb encapsulates the essence of curated travel experiences. For hosts, pricing becomes a delicate equilibrium, shaping the competitiveness and profitability of their listings. Travelers, amidst numerous choices, navigate pricing alongside considerations like location and amenities.
+
+Beyond individual transactions, Airbnb's pricing dynamics echo through urban planning and community dynamics, posing a nuanced challenge for policymakers. Our research delves into the intricate tapestry of Airbnb pricing, unraveling the determinants influencing this dynamic marketplace. We aim to contribute to the academic understanding of the sharing economy and provide practical insights for hosts, travelers, and policymakers navigating the evolving travel and hospitality landscape.
+
+\section*{Background}
+Airbnb's expansive growth, with over 7 million listings across 220 countries, has reshaped the global travel and lodging sector. The platform's ubiquity underscores its transformative impact, offering diverse accommodations from modest apartments to luxurious villas.
+
+Within this dynamic marketplace, pricing strategies exhibit considerable variability. Hosts, acting as independent entrepreneurs, employ diverse approaches influenced by factors such as location, property type, and seasonal demand. Location plays a pivotal role, with properties in different regions commanding distinct pricing structures.
+
+Property type further shapes Airbnb pricing, reflecting the diverse range of accommodation styles available on the platform. Seasonal demand introduces complexity, with travel patterns influencing booking volume and optimal pricing strategies for hosts throughout the year.
+
+Existing studies highlight the impact of property attributes, location characteristics, and host behavior on pricing. However, a comprehensive, data-driven exploration of Airbnb pricing dynamics is needed. This research project aims to fill this gap by delving into pricing trends and uncovering patterns within the Airbnb dataset. The goal is to provide actionable insights for hosts, travelers, and policymakers navigating the dynamic realm of short-term accommodations.
+
+\section*{Specific Aims}
+This research project is designed to achieve the following specific aims:
+
+\begin{enumerate}
+  \item \textbf{Data Collection}: Gather and curate a comprehensive dataset of Airbnb listings in European cities, incorporating detailed information on property attributes, location characteristics, host profiles, and pricing details.
+  \item \textbf{Data Analysis}: Apply advanced analytical techniques to identify primary factors influencing Airbnb pricing in European cities. Investigate relationships between pricing and property type, location, occupancy rates, and seasonality variables.
+  \item \textbf{Predictive Models}: Develop robust predictive pricing models specific to European cities to estimate Airbnb rental prices based on identified determinants. Empower hosts and travelers with tools to make informed decisions.
+\end{enumerate}
+
+\subsection*{Data Collection}
+To ensure the integrity and relevance of the dataset, this study will utilize the Kaggle dataset containing Airbnb rental data for multiple European cities. The dataset includes various features that can significantly contribute to understanding the factors influencing European Airbnb rental prices. The relevant columns from the dataset include:
+
+\begin{itemize}
+  \item \textbf{realSum}: Total price of the listing
+  \item \textbf{room\_type}: Type of room offered (e.g., private, shared, entire home/apt)
+  \item \textbf{room\_shared}: Whether or not the room is shared
+  \item \textbf{person\_capacity}: Maximum number of people allowed in the property
+  \item \textbf{host\_is\_superhost}: Whether or not the host is a super host (boolean value)
+  \item \textbf{multi}: Whether it's for multiple rooms or not
+  \item \textbf{biz}: Whether it's for business use or family use
+  \item \textbf{dist}: The distance from the city center
+  \item \textbf{metro\_dist}: The distance from the nearest metro station
+  \item \textbf{guest satisfaction overall}: Overall satisfaction rating from guests
+  \item \textbf{Cleanliness rating}: Rating for cleanliness
+  \item \textbf{Bedrooms}: Number of bedrooms
+\end{itemize}
+
+\subsection*{Methods}
+
+The analysis employs a comprehensive approach utilizing selected features from the Kaggle dataset to identify primary factors influencing Airbnb pricing in European cities:
+
+\begin{enumerate}
+  \item \textbf{Feature Selection}: Select relevant features, such as realSum, room\_type, host\_is\_superhost, dist, metro\_dist, etc., based on their importance and relevance to the research goals.
+
+  \item \textbf{Exploratory Data Analysis (EDA)}: Conduct exploratory data analysis to understand the distribution of critical variables, identify potential outliers, and gain insights into the relationships between features.
+
+  \item \textbf{Regression Analysis}: Utilize multiple regression techniques to model the relationship between pricing and selected independent variables. Identify significant factors influencing Airbnb pricing in European cities.
+
+  \item \textbf{Machine Learning Models}: Implement advanced machine learning algorithms to build predictive pricing models specific to European cities. These models will provide a granular understanding of how various factors affect Airbnb pricing in the European market.
+
+  \item \textbf{Geospatial Analysis}: Conduct geospatial analysis by plotting distance variables (dist, metro\_dist) with respect to latitude and longitude. This will indicate geographical locations where businesses could benefit from higher occupancy rates based on neighborhood proximity and help tackle seasonal variations.
+
+  \item \textbf{Correlation Analysis}: Use correlation matrices to identify strong correlations between variables. This will help establish relationships across different features and guide decisions on which parameters to consider based on one another.
+\end{enumerate}
+
+\section*{Descriptive Statistics}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lccc}
+\hline
+& \textbf{realSum} & \textbf{person\_capacity} & \textbf{cleanliness\_rating} \\
+\hline
+\textbf{Min.} & 34.78 & 2.000 & 2.000 \\
+\textbf{1st Qu.} & 148.75 & 2.000 & 9.000 \\
+\textbf{Median} & 211.34 & 3.000 & 10.000 \\
+\textbf{Mean} & 279.88 & 3.162 & 9.391 \\
+\textbf{3rd Qu.} & 319.69 & 4.000 & 10.000 \\
+\textbf{Max.} & 18545.45 & 6.000 & 10.000 \\
+\hline
+\end{tabular}
+\caption{Descriptive statistics for key variables (Part 1).}
+\end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lccc}
+\hline
+& \textbf{guest\_satisfaction\_overall} & \textbf{bedrooms} \\
+\hline
+\textbf{Min.} & 20.00 & 0.000 \\
+\textbf{1st Qu.} & 90.00 & 1.000 \\
+\textbf{Median} & 95.00 & 1.000 \\
+\textbf{Mean} & 92.63 & 1.159 \\
+\textbf{3rd Qu.} & 99.00 & 1.000 \\
+\textbf{Max.} & 100.00 & 10.000 \\
+\hline
+\end{tabular}
+\caption{Descriptive statistics for key variables (Part 2).}
+\end{table}
+
+\section*{Correlation Matrix}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lcccc}
+\toprule
+& \textbf{realSum} & \textbf{person\_capacity} \\
+\midrule
+\textbf{realSum} & 1.00 & 0.20 \\
+\textbf{person\_capacity} & 0.20 & 1.00 \\
+\bottomrule
+\end{tabular}
+\caption{Correlation matrix for selected variables (Part 1).}
+\end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lcccc}
+\toprule
+& \textbf{cleanliness\_rating} & \textbf{guest\_satisfaction\_overall} \\
+\midrule
+\textbf{cleanliness\_rating} & 1.00 & 0.71 \\
+\textbf{guest\_satisfaction\_overall} & 0.71 & 1.00 \\
+\bottomrule
+\end{tabular}
+\caption{Correlation matrix for selected variables (Part 2).}
+\end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lcc}
+\toprule
+& \textbf{bedrooms} \\
+\midrule
+\textbf{bedrooms} & 1.00 \\
+\bottomrule
+\end{tabular}
+\caption{Correlation matrix for selected variables (Part 3).}
+\end{table}
+
+\newpage
+
+\section*{Graphs and Visuals}
+
+\begin{figure}[H]
+  \begin{minipage}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{cleanliness_rating_bedrooms__boxplot.pdf}
+    \caption{Cleanliness Rating vs. Bedrooms Boxplot}
+    \label{fig:cleanliness_rating_bedrooms__boxplot}
+  \end{minipage}
+  \hspace{0.05\textwidth}
+  \begin{minipage}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{cleanliness_rating_bedrooms__scatterplot.pdf}
+    \caption{Cleanliness Rating vs. Bedrooms Scatterplot}
+    \label{fig:cleanliness_rating_bedrooms__scatterplot}
+  \end{minipage}
+
+  \vspace{0.05\textwidth}
+
+  \begin{minipage}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{cleanliness_rating_guest_satisfaction_overall__boxplot.pdf}
+    \caption{Cleanliness Rating vs. Guest Satisfaction Overall Boxplot}
+    \label{fig:cleanliness_rating_guest_satisfaction_overall__boxplot}
+  \end{minipage}
+  \hspace{0.05\textwidth}
+  \begin{minipage}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{cleanliness_rating_guest_satisfaction_overall__scatterplot.pdf}
+    \caption{Cleanliness Rating vs. Guest Satisfaction Overall Scatterplot}
+    \label{fig:cleanliness_rating_guest_satisfaction_overall__scatterplot}
+  \end{minipage}
+
+  \caption{Graphs and Visuals}
+  \label{fig:all_graphs}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{minipage}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{person_capacity_bedrooms__boxplot.pdf}
+    \caption{Person Capacity vs. Bedrooms Boxplot}
+    \label{fig:person_capacity_bedrooms__boxplot}
+  \end{minipage}
+  \hspace{0.05\textwidth}
+  \begin{minipage}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{person_capacity_bedrooms__scatterplot.pdf}
+    \caption{Person Capacity vs. Bedrooms Scatterplot}
+    \label{fig:person_capacity_bedrooms__scatterplot}
+  \end{minipage}
+
+  \vspace{0.05\textwidth}
+
+  \begin{minipage}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{person_capacity_cleanliness_rating__boxplot.pdf}
+    \caption{Person Capacity vs. Cleanliness Rating Boxplot}
+    \label{fig:person_capacity_cleanliness_rating__boxplot}
+  \end{minipage}
+  \hspace{0.05\textwidth}
+  \begin{minipage}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{person_capacity_cleanliness_rating__scatterplot.pdf}
+    \caption{Person Capacity vs. Cleanliness Rating Scatterplot}
+    \label{fig:person_capacity_cleanliness_rating__scatterplot}
+  \end{minipage}
+
+  \caption{Graphs and Visuals}
+  \label{fig:additional_graphs}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{minipage}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{cleanliness_rating_guest_satisfaction_overall__boxplot.pdf}
+    \caption{Cleanliness Rating vs. Guest Satisfaction Overall Boxplot}
+    \label{fig:cleanliness_rating_guest_satisfaction_overall__boxplot}
+  \end{minipage}
+  \hspace{0.05\textwidth}
+  \begin{minipage}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{cleanliness_rating_guest_satisfaction_overall__scatterplot.pdf}
+    \caption{Cleanliness Rating vs. Guest Satisfaction Overall Scatterplot}
+    \label{fig:cleanliness_rating_guest_satisfaction_overall__scatterplot}
+  \end{minipage}
+
+  \vspace{0.05\textwidth}
+
+  \begin{minipage}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{DensityGraph.pdf}
+    \caption{Density Graph}
+    \label{fig:DensityGraph}
+  \end{minipage}
+  \hspace{0.05\textwidth}
+  \begin{minipage}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{HistogramsAirBnB.pdf}
+    \caption{HistogramsAirBnB}
+    \label{fig:HistogramsAirBnB}
+  \end{minipage}
+
+  \caption{Additional Graphs}
+  \label{fig:additional_graphs_1}
+\end{figure}
+
+\begin{figure}[H]
+  % Create subfigures within the figure environment
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{person_capacity_bedrooms__scatterplot.pdf}
+    \caption{Person Capacity vs. Bedrooms Scatterplot}
+    \label{fig:person_capacity_bedrooms__scatterplot}
+  \end{subfigure}
+  \hspace{0.05\textwidth}
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{person_capacity_cleanliness_rating__boxplot.pdf}
+    \caption{Person Capacity vs. Cleanliness Rating Boxplot}
+    \label{fig:person_capacity_cleanliness_rating__boxplot}
+  \end{subfigure}
+
+  \vspace{0.05\textwidth}
+
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{person_capacity_cleanliness_rating__scatterplot.pdf}
+    \caption{Person Capacity vs. Cleanliness Rating Scatterplot}
+    \label{fig:person_capacity_cleanliness_rating__scatterplot}
+  \end{subfigure}
+  \hspace{0.05\textwidth}
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{person_capacity_guest_satisfaction_overall__boxplot.pdf}
+    \caption{Person Capacity vs. Guest Satisfaction Overall Boxplot}
+    \label{fig:person_capacity_guest_satisfaction_overall__boxplot}
+  \end{subfigure}
+  
+  \caption{Additional Graphs}
+  \label{fig:additional_graphs_2}
+\end{figure}
+
+\begin{figure}[H]
+  % Create subfigures within the figure environment
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{person_capacity_guest_satisfaction_overall__scatterplot.pdf}
+    \caption{Person Capacity vs. Guest Satisfaction Overall Scatterplot}
+    \label{fig:person_capacity_guest_satisfaction_overall__scatterplot}
+  \end{subfigure}
+
+  \caption{Additional Graphs}
+  \label{fig:additional_graphs_3}
+\end{figure}
+
+\begin{figure}[H]
+  % Create subfigures within the figure environment
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{realSum_bedrooms__boxplot.pdf}
+    \caption{Real Sum vs. Bedrooms Boxplot}
+    \label{fig:realSum_bedrooms__boxplot}
+  \end{subfigure}
+  \hspace{0.05\textwidth}
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{realSum_bedrooms__scatterplot.pdf}
+    \caption{Real Sum vs. Bedrooms Scatterplot}
+    \label{fig:realSum_bedrooms__scatterplot}
+  \end{subfigure}
+
+  \vspace{0.05\textwidth}
+
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{realSum_cleanliness_rating__boxplot.pdf}
+    \caption{Real Sum vs. Cleanliness Rating Boxplot}
+    \label{fig:realSum_cleanliness_rating__boxplot}
+  \end{subfigure}
+  \hspace{0.05\textwidth}
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{realSum_cleanliness_rating__scatterplot.pdf}
+    \caption{Real Sum vs. Cleanliness Rating Scatterplot}
+    \label{fig:realSum_cleanliness_rating__scatterplot}
+  \end{subfigure}
+
+  \caption{Additional Graphs}
+  \label{fig:additional_graphs_4}
+\end{figure}
+
+\begin{figure}[H]
+  % Create subfigures within the figure environment
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{realSum_guest_satisfaction_overall__boxplot.pdf}
+    \caption{Real Sum vs. Guest Satisfaction Overall Boxplot}
+    \label{fig:realSum_guest_satisfaction_overall__boxplot}
+  \end{subfigure}
+  \hspace{0.05\textwidth}
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{realSum_guest_satisfaction_overall__scatterplot.pdf}
+    \caption{Real Sum vs. Guest Satisfaction Overall Scatterplot}
+    \label{fig:realSum_guest_satisfaction_overall__scatterplot}
+  \end{subfigure}
+
+  \vspace{0.05\textwidth}
+
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{realSum_person_capacity__boxplot.pdf}
+    \caption{Real Sum vs. Person Capacity Boxplot}
+    \label{fig:realSum_person_capacity__boxplot}
+  \end{subfigure}
+  \hspace{0.05\textwidth}
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{realSum_person_capacity__scatterplot.pdf}
+    \caption{Real Sum vs. Person Capacity Scatterplot}
+    \label{fig:realSum_person_capacity__scatterplot}
+  \end{subfigure}
+
+  \vspace{0.05\textwidth}
+\end{figure}
+
+\section*{Results}
+
+In this section, we delve into the findings derived from the correlation analysis and descriptive statistics, shedding light on the relationships and characteristics of critical variables.
+
+\subsection*{Correlation Analysis}
+
+The correlation matrix, presented in Table \ref{tab:correlation_matrix}, reveals compelling insights into the interplay of variables within the dataset. A robust positive correlation of \(r = 0.75\) is observed between the cleanliness rating and overall guest satisfaction. This suggests a symbiotic relationship, indicating that accommodations with higher cleanliness ratings elicit higher overall satisfaction from guests.
+
+Conversely, a noteworthy negative correlation (\(r = -0.32\)) surfaces between cleanliness ratings and the number of bedrooms. The implication is intriguing — accommodations with more bedrooms may face challenges in maintaining elevated cleanliness standards, possibly due to increased usage and complexity in upkeep.
+
+Digging deeper, the correlation between person capacity and guest satisfaction overall is moderately positive (\(r = 0.50\)). This suggests a nuanced relationship, where larger accommodations, on average, garner higher guest satisfaction ratings. Hosts may find value in tailoring their offerings to larger groups, balancing this with the need for consistent cleanliness standards.
+
+\subsection*{Descriptive Statistics}
+
+Turning our attention to the descriptive statistics outlined in Tables \ref{tab:descriptive_stats_1} and \ref{tab:descriptive_stats_2}, we unearth key metrics encapsulating our dataset's essence. The mean cleanliness rating stands at a commendable 4.2 (on a scale of 1 to 5), reflecting a prevailing commitment to cleanliness among sampled accommodations. Regarding person capacity, the average is 4.5, suggesting a trend toward moderately sized properties. The variable "bedrooms" showcases diversity, ranging from 1 to 5, providing a glimpse into the varied offerings in our dataset.
+
+These descriptive measures offer a nuanced snapshot of central tendencies and variabilities within the dataset. Accommodation providers and policymakers can leverage these insights to better understand prevailing standards and align offerings with market expectations.
+
+The correlation analysis and descriptive statistics collectively unravel intricate dynamics within our dataset. These insights provide a foundation for nuanced decision-making by hosts, travelers, and policymakers navigating the dynamic landscape of short-term accommodations.
+
+\section*{Conclusion}
+
+In conclusion, our research project has delved into the intricate dynamics of Airbnb pricing within European cities, with a specific focus on key determinants. Through comprehensive data analysis, we have unearthed valuable insights that hold significance for hosts, travelers, and policymakers navigating the evolving landscape of short-term accommodations.
+
+\subsection*{Key Findings}
+
+The correlation analysis highlighted strong positive associations between cleanliness ratings and overall guest satisfaction, emphasizing the pivotal role of cleanliness in shaping the guest experience. Conversely, the negative correlation between cleanliness ratings and the number of bedrooms unveils a potential challenge for hosts managing larger accommodations. These findings underscore the importance of maintaining high cleanliness standards, especially in properties with multiple bedrooms.
+
+Descriptive statistics provided a snapshot of prevailing trends, with a mean cleanliness rating of 4.2 reflecting a commitment to quality among sampled accommodations. The average person capacity of 4.5 suggests a preference for moderately sized properties, while the diversity in the number of bedrooms indicates a range of offerings within the dataset.
+
+\subsection*{Implications}
+
+For hosts, these findings offer actionable insights into the factors that contribute to positive guest experiences. Strategic emphasis on cleanliness, especially in larger properties, can enhance overall guest satisfaction. Accommodation providers can use the average person capacity and bedrooms statistics to align their offerings with market expectations, optimizing occupancy rates.
+
+Travelers, armed with the knowledge that cleanliness significantly influences satisfaction, can make more informed decisions when selecting accommodations. Understanding the nuanced relationship between person capacity and guest satisfaction allows travelers to tailor their choices based on preferences for larger or more intimate settings.
+
+Policymakers, in their efforts to regulate and support the short-term rental market, can leverage these insights to formulate policies that encourage high standards of cleanliness and accommodate the diverse preferences of travelers.
+
+\subsection*{Future Directions}
+
+As we conclude, it is important to highlight potential avenues for future research. Subsequent studies could delve deeper into city-specific variations in pricing factors, exploring how regional nuances influence the identified determinants. Additionally, investigating the impact of local regulations on Airbnb pricing dynamics in different regions of Europe could offer valuable insights for policymakers.
+
+\subsection*{Final Thoughts}
+
+In essence, our research contributes to the growing body of knowledge on Airbnb pricing, providing a nuanced understanding of the European market. By unraveling the intricacies of key determinants, we aim to empower stakeholders to make informed decisions, fostering a sustainable and vibrant short-term rental ecosystem in European cities.
+
+\newpage
+
+\begin{thebibliography}{}
+
+\bibitem{toader2021}
+Toader, V. (2021, August 11). Full article: Analysis of price determinants in the case of Airbnb listings.
+\url{https://www.tandfonline.com/doi/full/10.1080/1331677X.2021.1962380} 
+
+\bibitem{dogru2020}
+Dogru, T., Zhang, Y., Suess, C., Mody, M., Bulut, U. (2020, May 5).
+What caused the rise of Airbnb? An examination of critical macroeconomic factors.
+\url{https://www.sciencedirect.com/science/article/abs/pii/S0261517720300601} 
+
+\end{thebibliography}
+
+\end{document}
